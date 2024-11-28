@@ -1,0 +1,64 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/css/all.min.css' %}">
+    <script src="{% static 'css/js/all.min.js' %}" defer></script>
+    <title>Miral Search</title>
+</head>
+<body>
+    <div class="container">
+        <header class="logo-section">
+            <h1 class="logo">Miral Search</h1>
+            <button><i class="fa fa-moon"></i></button>
+        </header>
+
+        <main class="search-section">
+            <form method="GET" class="search-form">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="search-btn"><i class="fa fa-search"></i></button>
+            </form>
+        </main>
+
+        <h3 style="text-align: left;">Results ({{ article_quantity }}): </h3>
+
+        <div class="results-section">
+            <ul class="results-list">
+                {% for article in results %}
+                <li class="result">
+                    <p>{{ article.title }}</p>
+                    <a href="{{ article.url }}" class="result-link">{{ article.title }}</a>
+                    <p style="opacity: 80%;">{{ article.description }}</p>
+                </li>
+                {% empty %}
+                <li class="no-results">No results found.</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+    const themeToggleButton = document.querySelector(".logo-section button");
+    const body = document.body;
+
+    // Сохраняем тему в localStorage
+    const currentTheme = localStorage.getItem("theme");
+    if (currentTheme === "dark") {
+        body.classList.add("dark-mode");
+    }
+
+    themeToggleButton.addEventListener("click", function () {
+        body.classList.toggle("dark-mode");
+        const theme = body.classList.contains("dark-mode") ? "dark" : "light";
+        localStorage.setItem("theme", theme);
+    });
+});
+
+    </script>
+</body>
+</html>

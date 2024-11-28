@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/css/all.min.css' %}">
+    <script src="{% static 'css/js/all.min.js' %}" defer></script>
+    <title>Add Article - Miral Search</title>
+</head>
+<body>
+    <main class="form-wrapper">
+        <div class="form-card">
+            <header class="console-header">
+                <h1>Miral Search Console</h1>
+            </header>
+            <h2>Add a New Article</h2>
+            <form method="POST" class="add-article-form">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <nav>
+                    <a href="{% url 'dashboard' %}" class="back-btn"><i class="fa fa-arrow-left"></i> Back to Dashboard</a>
+                    <button type="submit" class="submit-btn"><i class="fa fa-save"></i> Save Article</button>
+                </nav>
+            </form>
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/css/all.min.css' %}">
+    <script src="{% static 'css/js/all.min.js' %}" defer></script>
+    <title>Console - Miral Search</title>
+</head>
+<body>
+    <header class="console-header">
+        <h1>Miral Search Console</h1>
+        <nav>
+            <a href="/" class="add-btn">Home</a>
+            <a href="{% url 'add_website' %}" class="add-btn"><i class="fa fa-plus"></i> Add Website</a>
+        </nav>
+    </header>
+
+    <main class="console-container">
+        <h2>Registered Websites</h2>
+        {% if websites %}
+        <table class="console-table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Title</th>
+                    <th>URL</th>
+                    <th>Description</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for website in websites %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ website.title }}</td>
+                    <td><a href="{{ website.url }}" target="_blank">{{ website.url }}</a></td>
+                    <td>{{ website.description }}</td>
+                    <td>
+                        <a href="{% url 'delete_website' website.id %}" class="delete-btn"><i class="fa fa-trash"></i></a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p class="no-websites">No websites registered yet. Click "Add Website" to get started!</p>
+        {% endif %}
+    </main>
+</body>
+</html>

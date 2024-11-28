@@ -1,0 +1,280 @@
+/* Общие стили */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    color: #202124;
+    text-align: center;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-mode {
+    background-color: #202124;
+    color: #e8eaed;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Логотип */
+.logo-section {
+    margin: 50px 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 48px;
+    font-weight: bold;
+    color: #4285f4;
+}
+
+body.dark-mode .logo {
+    color: #8ab4f8;
+}
+
+/* Кнопка темы */
+.logo-section button {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #202124;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+body.dark-mode .logo-section button {
+    color: #e8eaed;
+}
+
+.logo-section button:hover {
+    opacity: 0.8;
+}
+
+/* Форма поиска */
+.search-section {
+    margin-top: 20px;
+}
+
+.search-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+input[type="text"] {
+    width: 700px;
+    padding: 10px;
+    font-size: 18px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-mode input[type="text"] {
+    background-color: #303134;
+    color: #e8eaed;
+    border: 1px solid #5f6368;
+}
+
+.search-btn {
+    padding: 10px 20px;
+    font-size: 18px;
+    color: #fff;
+    background-color: #4285f4;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-left: 25px;
+    transition: background-color 0.3s ease;
+}
+
+body.dark-mode .search-btn {
+    background-color: #8ab4f8;
+}
+
+.search-btn:hover {
+    background-color: #357ae8;
+}
+
+body.dark-mode .search-btn:hover {
+    background-color: #669df6;
+}
+
+/* Результаты */
+.results-section {
+    margin-top: 40px;
+    text-align: left;
+}
+
+.results-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.results-list .result {
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+body.dark-mode .results-list .result {
+    background-color: #303134;
+    border-color: #5f6368;
+}
+
+.result-link {
+    font-size: 18px;
+    color: #4285f4;
+    text-decoration: none;
+}
+
+body.dark-mode .result-link {
+    color: #8ab4f8;
+}
+
+.result-link:hover {
+    text-decoration: underline;
+}
+
+.no-results {
+    color: #ff4f4f;
+    font-style: italic;
+}
+
+form label{
+    display: none;
+}
+
+
+.main-container {
+    max-width: 1000px;
+    margin: 2rem auto;
+    background: white;
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Table Styling */
+.console-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+.console-table th, .console-table td {
+    padding: 0.75rem;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+.console-table th {
+    background-color: #4285f4;
+    color: white;
+}
+
+
+.console-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.console-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+.no-websites {
+    text-align: center;
+    margin-top: 1rem;
+    color: #888;
+}
+
+/* Form Styling */
+.add-website-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    margin: auto;
+}
+
+.add-website-form input, .add-website-form textarea {
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.add-website-form button {
+    padding: 0.75rem;
+    font-size: 1rem;
+    color: white;
+    background-color: #3498db;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.add-website-form button:hover {
+    background-color: #2980b9;
+}
+
+/* Action Buttons */
+.delete-btn, .back-btn, .add-btn {
+    text-decoration: none;
+    padding: 0.5rem;
+    color: white;
+    background-color: #e74c3c;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.submit-btn{
+    text-decoration: none;
+    padding: 0.5rem;
+    color: white;
+    outline: none;
+    border: none;
+    background-color: #3c80e7;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.form-card{
+    margin-top: 5%;
+}
+
+.delete-btn:hover, .back-btn:hover, .add-btn:hover {
+    background-color: #c0392b;
+}
+
+
+.form-card{
+    background: rgb(226, 226, 226);
+    padding: 20px;
+    width: fit-content;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 20px;
+}
+
+.form-card input, textarea{
+    border-radius: 10px;
+}
